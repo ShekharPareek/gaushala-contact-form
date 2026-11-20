@@ -69,7 +69,7 @@ app.post("/contact", async (req, res) => {
   try {
     const resend = new Resend(apiKey);
     const { data, error } = await resend.emails.send({
-      from: "Line to Line <noreply@shekharpareek30@gmail.com>",
+      from: process.env.RESEND_FROM_EMAIL || "Gaushala Contact <onboarding@resend.dev>",
       to: "shekharpareek30@gmail.com",
       replyTo: email,
       subject: `New Contact Form: ${service}`,
